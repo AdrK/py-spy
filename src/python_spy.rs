@@ -360,9 +360,9 @@ impl PythonSpy {
     fn _get_os_thread_id<I: InterpreterState>(&mut self, python_thread_id: u64, interp: &I) -> Result<Option<Tid>, Error> {
         // in nonblocking mode, we can't get the threadid reliably (method here requires reading the RBX
         // register which requires a ptrace attach). fallback to heuristic thread activity here
-        if self.config.blocking == LockingStrategy::NonBlocking {
-            return Ok(None);
-        }
+        //if self.config.blocking == LockingStrategy::NonBlocking {
+        //    return Ok(None);
+        //}
 
         // likewise this doesn't yet work for profiling processes running inside docker containers from the host os
         if self.dockerized {
