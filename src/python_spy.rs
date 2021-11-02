@@ -318,6 +318,7 @@ impl PythonSpy {
         } else {
             let frame = &frames[0];
             (frame.name == "wait" && frame.filename.ends_with("threading.py")) ||
+            (frame.name == "_try_wait" && frame.filename.ends_with("subprocess.py")) ||
             (frame.name == "select" && frame.filename.ends_with("selectors.py")) ||
             (frame.name == "poll" && (frame.filename.ends_with("asyncore.py") ||
                                     frame.filename.contains("zmq") ||
