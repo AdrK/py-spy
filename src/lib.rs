@@ -113,9 +113,6 @@ pub extern "C" fn pyspy_snapshot(pid: Pid, ptr: *mut u8, len: i32, err_ptr: *mut
                     for thread in trace.iter() {
                         if thread.active {
                             for frame in &thread.frames {
-                                if frame.name.contains("wait") {
-                                    info!("Debug")
-                                }
                                 let filename = match &frame.short_filename { Some(f) => &f, None => &frame.filename };
                                 if frame.line != 0 {
                                     string_list.insert(0, format!("{}:{} - {}", filename, frame.line, frame.name));
