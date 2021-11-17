@@ -264,6 +264,10 @@ impl PythonSpy {
                 trace.active = !self._heuristic_is_thread_idle(&trace);
             }
 
+            if !trace.active {
+                println!("Inactive trace: {:?}", trace);
+            }
+
             // Merge in the native stack frames if necessary
             #[cfg(unwind)]
             {
