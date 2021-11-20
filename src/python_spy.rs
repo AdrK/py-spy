@@ -266,6 +266,8 @@ impl PythonSpy {
 
             if !trace.active {
                 println!("Inactive trace: {:?}", trace);
+            } else {
+                println!("Active trace: {:?}", trace);
             }
 
             // Merge in the native stack frames if necessary
