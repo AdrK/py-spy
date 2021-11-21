@@ -121,6 +121,8 @@ pub extern "C" fn pyspy_snapshot(pid: Pid, ptr: *mut u8, len: i32, err_ptr: *mut
                                 }
                             }
                             string_list.insert(0, "\n".to_string());
+                        } else {
+                            println!("Inactive thread: {:?}", trace);
                         }
                     }
                     let joined = string_list.join(";");

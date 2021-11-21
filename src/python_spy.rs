@@ -264,9 +264,7 @@ impl PythonSpy {
                 trace.active = !self._heuristic_is_thread_idle(&trace);
             }
 
-            if !trace.active {
-                println!("Inactive trace: {:?}", trace);
-            } else {
+            if trace.active {
                 println!("Active trace: {:?}", trace);
             }
 
